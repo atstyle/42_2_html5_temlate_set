@@ -1,0 +1,86 @@
+<MTSetVarBlock name="title"><$MTEntryTitle encode_html="1"$> - <$MTBlogName encode_html="1"$></MTSetVarBlock>
+<!DOCTYPE html>
+<html lang="<$MTBlogLanguage$>"><MTUnless regex_replace="/\s*\n+/g","\n">
+<head>
+<$mt:include module="HTMLヘッダー"$>
+<MTEntryPrevious>
+<link rel="prev" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>">
+</MTEntryPrevious>
+<MTEntryNext>
+<link rel="next" href="<$MTEntryPermalink$>" title="<$MTEntryTitle encode_html="1"$>">
+</MTEntryNext>
+<$MTEntryTrackbackData$>
+<title><$mt:var name="title"$></title>
+</head>
+
+<body onload="mtEntryOnLoad()">
+
+<$mt:include module="バナーヘッダー"$>
+
+<div id="content">
+
+<div id="main">
+
+<ul class="path">
+<li><a href="<$MTBlogURL$>" title="ホーム">ホーム</a></li>
+<MTParentCategories>  
+<MTIfNonZero tag="MTCategoryCount">  
+<li><a href="<$MTCategoryArchiveLink$>"><$MTCategoryLabel$></a></li>  
+<MTElse><li><$MTCategoryLabel$></li></MTElse>  
+</MTIfNonZero>  
+</MTParentCategories>  
+<li><$MTEntryTitle$></li>  
+</ul>
+
+<div class="inner">
+
+<article id="entry-<$MTEntryID$>">
+<header>
+<h2><$MTEntryTitle$></h2>
+
+<ul class="entry-meta">
+	<li><time pubdate="pubdate" datetime="<$MTEntryDate format_name="iso8601"$>"><$MTEntryDate format="%x"$></time> <MTIfNonEmpty tag="EntryAuthorDisplayName"><$MTEntryAuthorLink show_email="0"$></MTIfNonEmpty></li>
+<MTUnless name="hide_counts" eq="1">
+	<MTIfCommentsActive><li><a href="<$MTEntryPermalink$>#comments" title="Comments for:<$MTEntryTitle$>"><$MTEntryCommentCount singular="コメント(1)" plural="コメント(#)"$></a></li></MTIfCommentsActive>
+	<MTIfPingsActive><li><a href="<$MTEntryPermalink$>#trackbacks" title="Trackback for:<$MTEntryTitle$>"><$MTEntryTrackbackCount singular="トラックバック(1)" plural="トラックバック(#)"$></a></li></MTIfPingsActive>
+</MTUnless>
+</ul>
+
+</header>
+
+<MTIfNonEmpty tag="EntryBody">
+<$MTEntryBody replace="<br />","<br>" regex_replace="/<img([^>]+) \/>/g","<img$1>"$>
+</MTIfNonEmpty>
+<MTIfNonEmpty tag="EntryMore" convert_breaks="0">
+<div id="more">
+<$MTEntryMore replace="<br />","<br>" regex_replace="/<img([^>]+) \/>/g","<img$1>"$>
+</div>
+</MTIfNonEmpty>
+
+<MTEntryIfTagged>
+<section class="entry-tags">
+<h3 class="entry-tags-header">タグ:</h3> 
+<ul class="entry-tags-list">
+<MTEntryTags>
+<li class="entry-tag"><a href="<$MTTagSearchLink$>" rel="tag" title="タグ：<$MTTagName>の一覧"><$MTTagName></a></li>
+</MTEntryTags>
+</ul>
+</section>
+</MTEntryIfTagged>
+
+<$mt:include module="トラックバック"$>
+<$mt:include module="コメント"$>
+
+</article>
+
+</div><!-- / inner -->
+</div><!-- / main -->
+
+<$mt:include module="サイドバー"$>
+
+</div><!-- /content  -->
+
+<$mt:include module="バナーフッター"$>
+
+</body></MTUnless>
+</html>

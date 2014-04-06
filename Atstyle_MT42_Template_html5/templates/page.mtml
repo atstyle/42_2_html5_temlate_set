@@ -1,0 +1,53 @@
+<MTSetVarBlock name="page_title"><$mt:PageTitle encode_html="1"$> - <$mt:BlogName encode_html="1"$></MTSetVarBlock>
+<!DOCTYPE html>
+<html lang="<$MTBlogLanguage$>"><MTUnless regex_replace="/\s*\n+/g","\n">
+<head>
+
+<$mt:include module="HTMLヘッダー"$>
+<$mt:EntryTrackbackData$>
+<title><$mt:var name="page_title"$></title>
+</head>
+
+<body onload="mtEntryOnLoad()">
+
+<$mt:include module="バナーヘッダー"$>
+
+<div id="content">
+
+<div id="main">
+
+<ul class="path">
+<li><a href="<$MTBlogURL$>" title="ホーム">ホーム</a></li>
+<li><$MTPageTitle$></li>
+</ul>
+
+<div class="inner">
+
+<article id="page-<$mt:PageID$>">
+<header>
+<h2><$MTPageTitle$></h2>
+</header>
+<mt:If tag="PageBody">
+<$mt:PageBody replace="<br />","<br>" regex_replace="/<img([^>]+) \/>/g","<img$1>"$>
+</mt:If>
+<mt:If tag="PageMore">
+<div id="more">
+<$mt:PageMore replace="<br />","<br>" regex_replace="/<img([^>]+) \/>/g","<img$1>"$>
+</div>
+</mt:If>
+</article>
+
+<$MTInclude module="トラックバック"$>
+<$MTInclude module="コメント"$>
+
+</div><!-- / inner -->
+</div><!-- / main -->
+
+<$mt:include module="サイドバー"$>
+
+</div><!-- /content  -->
+
+<$mt:include module="バナーフッター"$>
+
+</body></MTUnless>
+</html>

@@ -1,0 +1,36 @@
+<article id="entry-<$mt:EntryID$>">
+<$MTEntryTrackbackData$>
+<header>
+<h2><$MTEntryTitle$></h2>
+
+<ul class="entry-meta">
+	<li><time pubdate="pubdate" datetime="<$MTEntryDate format_name="iso8601"$>"><$MTEntryDate format="%x"$></time> <MTIfNonEmpty tag="EntryAuthorDisplayName"><$MTEntryAuthorLink show_email="0"$></MTIfNonEmpty></li>
+<MTUnless name="hide_counts" eq="1">
+	<li><a class="permalink" href="<$MTEntryPermalink$>" title="Permalink to this entry:<$MTEntryTitle$>">個別ページ</a></li>
+	<MTIfCommentsActive><li><a href="<$MTEntryPermalink$>#comments" title="Comments for:<$MTEntryTitle$>"><$MTEntryCommentCount singular="コメント(1)" plural="コメント(#)"$></a></li></MTIfCommentsActive>
+	<MTIfPingsActive><li><a href="<$MTEntryPermalink$>#trackbacks" title="Trackback for:<$MTEntryTitle$>"><$MTEntryTrackbackCount singular="トラックバック(1)" plural="トラックバック(#)"$></a></li></MTIfPingsActive>
+</MTUnless>
+</ul>
+
+</header>
+
+<MTIfNonEmpty tag="EntryBody"><$MTEntryBody replace="<br />","<br>" regex_replace="/<img([^>]+) \/>/g","<img$1>"$></MTIfNonEmpty>
+
+<MTEntryIfTagged>
+<section class="entry-tags">
+<h3 class="entry-tags-header">タグ:</h3> 
+<ul class="entry-tags-list">
+<MTEntryTags>
+<li class="entry-tag"><a href="<$MTTagSearchLink$>" rel="tag" title="タグ：<$MTTagName>の一覧"><$MTTagName></a></li>
+</MTEntryTags>
+</ul>
+</section>
+</MTEntryIfTagged>
+
+<MTIfNonEmpty tag="EntryMore" convert_breaks="0">
+<footer class="entry-more">
+<p class="extended">続きを読む: <a href="<$MTEntryPermalink$>#more" rel="bookmark" title="「<$MTEntryTitle$>」の続きを読む"><$MTEntryTitle$></a></p>
+</footer>
+</MTIfNonEmpty>
+
+</article>

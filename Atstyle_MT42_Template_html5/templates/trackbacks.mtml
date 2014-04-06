@@ -1,0 +1,19 @@
+<MTIfPingsActive>
+<section id="trackbacks" class="trackBacks">
+<header>
+<h3><$MTEntryTrackbackCount singular="トラックバック(1)" plural="トラックバック(#)" none="トラックバック(0)"$></h3>
+<MTIfPingsAccepted>
+<p>トラックバックURL: <$MTEntryTrackbackLink$></p>
+</header>
+</MTIfPingsAccepted>
+<MTPings>
+<aside class="trackback" id="ping-<$MTPingID$>">
+<h4><$MTPingBlogName$> - <a href="<$MTPingURL$>"><$MTPingTitle$></a> (<a href="#ping-<$MTPingID$>"><time datetime="<$MTPingDate format_name="iso8601"$>"><$MTPingDate format="%x %k時%M分"$></time></a>)</h4>
+
+<p>
+<$MTPingExcerpt$> <a href="<$MTPingURL$>">続きを読む</a>
+</p>
+</aside>
+</MTPings>
+</section>
+</MTIfPingsActive>

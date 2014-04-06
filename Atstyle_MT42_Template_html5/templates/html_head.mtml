@@ -1,0 +1,42 @@
+<meta charset="<$MTPublishCharset$>">
+<meta http-equiv="Content-Type" content="text/html; charset=<$MTPublishCharset$>">
+<meta name="generator" content="<$MTProductName version="1"$>">
+<MTIf name="entry_template">
+<meta name="description" content="<$MTEntryExcerpt remove_html="1"$>">
+<MTElse>
+<MTIf name="category_archive">
+<meta name="description" content="<$MTArchiveTitle$> <$MTCategoryDescription$>">
+<MTElse>
+<MTIf name="page_template"><meta name="description" content="<$MTPageTitle$> <$MTPageExcerpt remove_html="1"$>">
+<MTElse>
+<MTIf name="main_index">
+<meta name="description" content="<$MTBlogDescription$>">
+<MTElse>
+<meta name="description" content="<$mt:var name="page_title"$>">
+</MTIf>
+</MTIf>
+</MTIf>
+</MTIf>
+<meta name="keywords" content="キーワード1,キーワード2,キーワード3<MTEntryIfTagged>,<MTEntryTags glue=","><$MTTagName$></MTEntryTags></MTEntryIfTagged><MTIfNonZero tag="MTEntryKeywords">,<$MTEntryKeywords$></MTIfNonZero>">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+<script src="<$MTLink template="javascript"$>"></script>
+<link rel="stylesheet" href="<$MTLink template="Reset_Stylesheet"$>" type="text/css">
+<link rel="stylesheet" href="<$MTLink template="styles"$>" type="text/css">
+<MTUnless name="main_index">
+<link rel="start" href="<$MTBlogURL$>" title="Home">
+</MTUnless>
+<MTUnless name="archive_index">
+<link rel="archives" href="<$MTLink template="アーカイブインデックス"$>" title="archives">
+</MTUnless>
+<link rel="alternate" type="application/atom+xml" href="<$MTLink template="feed_recent"$>" title="Recent Entries">
+<MTBlogIfCCLicense>
+<link rel="schema.CC" href="http://web.resource.org/cc/">
+<meta name="CC.license" content="<$MTBlogCCLicenseURL$>">
+</MTBlogIfCCLicense>
+<MTIf name="main_index">
+<link rel="EditURI" type="application/rsd+xml" href="<$MTLink template="rsd"$>" title="RSD">
+</MTIf>
+<link rel="author" href="mailto:mail@example.com">

@@ -1,0 +1,16 @@
+<MTIf name="main_index">
+<MTIfNonZero tag="AssetCount">
+<section id="Photo">
+<h2>Photo</h2>
+<$mt:setvar name="counter" value="0"$>
+<ol>
+<MTEntries lastn="0"><MTEntryAssets type="image" lastn="1"><MTIf name="counter" lt="6"><$mt:setvar name="counter" op="++"$><MTSetVarBlock name="imagewidth"><$MTAssetProperty property="image_width"$></MTSetVarBlock><MTSetVarBlock name="imageheight"><$MTAssetProperty property="image_height"$></MTSetVarBlock>
+<li class="item"><a href="<$MTEntryPermalink$>"><MTIf name="imagewidth" gt="$imageheight"><img src="<$MTAssetThumbnailURL square="1" height="70"$>" alt="<$MTEntryTitle$>" title="<$MTEntryTitle$>" width="70" height="70"><MTElse><img src="<$MTAssetThumbnailURL square="1" width="70"$>" alt="<$MTEntryTitle$>" title="<$MTEntryTitle$>" width="70" height="70"></MTIf></a></li>
+</MTIf>
+</MTEntryAssets>
+</MTEntries>
+</ol>
+</section>
+</MTIfNonZero>
+</MTIf>
+

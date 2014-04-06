@@ -1,0 +1,63 @@
+<MTSetVarBlock name="page_title"><$MTBlogName encode_html="1"$>: アーカイブ</MTSetVarBlock>
+<!DOCTYPE html>
+<html lang="<$MTBlogLanguage$>"><MTUnless regex_replace="/\s*\n+/g","\n">
+<head>
+<$mt:include module="HTMLヘッダー"$>
+<title><$mt:var name="page_title"$></title>
+</head>
+
+<body>
+
+<$mt:include module="バナーヘッダー"$>
+
+<div id="content">
+
+<div id="main">
+
+<ul class="path">
+<li><a href="<$MTBlogURL$>" title="ホーム">ホーム</a></li>
+<li>アーカイブ</li>
+</ul>
+
+<div class="inner">
+
+<header>
+<h2><$MTBlogName encode_html="1"$>: アーカイブ</h2>
+</header>
+
+<section class="Archives-list">
+<MTIfArchiveTypeEnabled archive_type="Monthly">
+<MTArchiveList archive_type="Monthly">
+<MTArchiveListHeader>
+<header>
+<h3>月別記事リスト</h3>
+</header>
+<ul>
+</MTArchiveListHeader>
+<li><a href="<$MTArchiveLink$>"><$MTArchiveTitle$></a>
+<ul>
+<MTEntries>
+<li><$MTEntryDate format="%d"$>日 : <a href="<$MTEntryPermalink$>"><$MTEntryTitle$></a> / <MTEntryCategories glue=", ">
+<a href="<$MTCategoryArchiveLink$>" <mt:IfNonEmpty tag="mt:CategoryDescription">title="<$mt:CategoryDescription$>"</mt:IfNonEmpty>><MTCategoryLabel></a></MTEntryCategories></li>
+</MTEntries>
+</ul></li>
+<MTArchiveListFooter>
+</ul>
+</MTArchiveListFooter>
+</MTArchiveList>
+
+</MTIfArchiveTypeEnabled>
+</section>
+
+
+</div><!-- / inner -->
+</div><!-- / main -->
+
+<$mt:include module="サイドバー"$>
+
+</div><!-- /content  -->
+
+<$mt:include module="バナーフッター"$>
+
+</body></MTUnless>
+</html>
