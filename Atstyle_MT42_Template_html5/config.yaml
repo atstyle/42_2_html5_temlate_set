@@ -1,16 +1,16 @@
 key: MT::Plugin::@Style_MT42_Template_html5
-name: @Style_MT42_Template_html5
-description: @Style Template for MTOS/MT4.2
-author_name: @Style
-author_link: http://atstyle.biz/
-doc_link: http://atstyle.biz/theme_temp/free/42_2_html5/
+name: "@Style_MT42_Template_html5"
+description: "@Style Template for MTOS/MT4.2"
+author_name: "@Style"
+author_link: "http://atstyle.biz/"
+doc_link: "http://atstyle.biz/theme_temp/free/42_2_html5/"
 version: V1.0
 
 
 
 template_sets:
   at_style_mt42_html5_template_set:
-    label: @Style_MT4.2_Template_html5
+    label: "@Style_MT4.2_Template_html5"
     base_path: templates
     order: 100
 
@@ -51,7 +51,7 @@ template_sets:
           mappings:
             page_archive:
               archive_type: Page
-              file_template: %-c/%-f
+              file_template: "%-c/%-f"
 
       archive:
         category_entry_listing:
@@ -59,14 +59,14 @@ template_sets:
           mappings:
             category:
               archive_type: Category
-              file_template: %-c/%i
+              file_template: "%-c/%i"
 
         monthly_entry_listing:
           label: Monthly Entry Listing
           mappings:
             monthly:
               archive_type: Monthly
-              file_template: %y/%m/%i
+              file_template: "%y/%m/%i"
 
       individual:
         entry:
@@ -74,7 +74,7 @@ template_sets:
           mappings:
             entry_archive:
               archive_type: Individual
-              file_template: %y/%m/%-f
+              file_template: "%y/%m/%-f"
 
 
       module:
